@@ -39,12 +39,13 @@
 language: java
 
 matrix:
-
+  
   fast_finish: true
 
   include:
-    - os: linux-ppc64le
-      jdk: openjdk11
+    -jdk: openjdk11
+     os: linux-ppc64le
+     
     - env: IMAGE=maven:3-jdk-12
 
     - env: IMAGE=maven:3-jdk-11 JDOC=Y RAT=Y
