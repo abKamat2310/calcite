@@ -17,6 +17,7 @@
 # limitations under the License.
 #
 language: java
+arch: ppc64le
 os: linux-ppc64le
 matrix:
   fast_finish: true
