@@ -43,15 +43,13 @@ matrix:
 
   include:
 
-    - env: IMAGE=maven:3-jdk-12
+  
 
     - env: IMAGE=maven:3-jdk-11 JDOC=Y RAT=Y
 
-    - env: IMAGE=maven:3-jdk-10 SLOW_TESTS=Y
 
-    - env: IMAGE=maven:3-jdk-9
 
-    - env: IMAGE=maven:3-jdk-8 JDOC=Y
+ 
 
 branches:
 
