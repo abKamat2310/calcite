@@ -44,7 +44,7 @@ jdk:
  
 install:
   # Print the Maven version, skip tests and javadoc
-  - $DOCKERRUN $IMAGE mvn install -DskipTests=true -Dmaven.javadoc.skip=true -Djavax.net.ssl.trustStorePassword=changeit -B -V
+  - $DOCKERRUN mvn install -DskipTests=true -Dmaven.javadoc.skip=true -Djavax.net.ssl.trustStorePassword=changeit -B -V
 script:
   - export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
   - sed -i '1100s/http/https/' pom.xml 
