@@ -9,4 +9,4 @@ cache:
  install: sudo apt-get install maven 
 script: - mvn clean install -DskipTests spotbugs:check- mvn test
 branches: 
-  only: - calcite-1.19.0 
+  only: - branch-1.19.0 
