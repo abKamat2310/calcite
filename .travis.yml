@@ -29,9 +29,7 @@ branches:
     - javadoc
     - /^branch-.*$/
     - /^[0-9]+-.*$/
-env:
-  global:
-  - DOCKERRUN="docker run -it --rm -v $PWD:/src -v $HOME/.m2:/root/.m2 -w /src"
+
 jdk: openjdk11
 services:
   - docker
@@ -39,7 +37,7 @@ services:
  
 install:
   # Print the Maven version, skip tests and javadoc
-  - $DOCKERRUN ubuntu mvn install -DskipTests=true -Dmaven.javadoc.skip=true -Djavax.net.ssl.trustStorePassword=changeit -B -V
+  -  mvn install -DskipTests=true -Dmaven.javadoc.skip=true -Djavax.net.ssl.trustStorePassword=changeit -B -V
 script:
   # Print surefire output to the console instead of files
   - jdk_switcher use openjdk11
@@ -49,7 +47,7 @@ script:
   - if [ $JDOC = "Y" ]; then export JDOC=javadoc:javadoc; fi
   - if [ $RAT = "Y" ]; then export RAT="apache-rat:check -Drat.consoleOutput"; fi
   - if [ $SLOW_TESTS = "Y" ]; then export TESTS="-Dgroups=org.apache.calcite.test.SlowTests --projects :calcite-core"; else export TESTS=-DskipSlowTests; fi
-  - $DOCKERRUN ubuntu  mvn -Dcheckstyle.skip -Dsurefire.useFile=false -Dsurefire.threadCount=1 -Dsurefire.perCoreThreadCount=false -Djavax.net.ssl.trustStorePassword=changeit test $TESTS $JDOC $RAT
+  -  mvn -Dcheckstyle.skip -Dsurefire.useFile=false -Dsurefire.threadCount=1 -Dsurefire.perCoreThreadCount=false -Djavax.net.ssl.trustStorePassword=changeit test $TESTS $JDOC $RAT
 git:
   depth: 10000
 sudo: required
