@@ -37,8 +37,8 @@
 #
 
 os: 
-- linux
-- linux-ppc64le
+  - linux
+  - linux-ppc64le
 
 language: java
 
