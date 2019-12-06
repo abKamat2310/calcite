@@ -43,15 +43,9 @@ matrix:
   include: 
       arch:
         - ppc64le
-      os: 
-        - linux-ppc64le
       jdk: openjdk11
       
-      dist: trusty
       
-      install: apt-get install maven 
-      
-      script: - mvn clean install -DskipTests spotbugs:check- mvn test
 
   fast_finish: true
 
