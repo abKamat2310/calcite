@@ -36,11 +36,15 @@
 
 #
 
+os: 
+- linux
+- linux-ppc64le
+
 language: java
 
 matrix:
   include: 
-    - os: linux-ppc64le
+  
       jdk: openjdk11
   
   fast_finish: true
