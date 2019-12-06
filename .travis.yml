@@ -41,14 +41,14 @@ language: java
 
 matrix:
   include: 
-  arch:
+      arch:
         - ppc64le
-    fast_finish: true
+    
     
     - env: IMAGE=maven:3-jdk-12
-       - os: linux-ppc64le
+        os: linux-ppc64le
     - env: IMAGE=maven:3-jdk-11 JDOC=Y RAT=Y
-       - os: linux-ppc64le
+        os: linux-ppc64le
     - env: IMAGE=maven:3-jdk-10 SLOW_TESTS=Y
     - env: IMAGE=maven:3-jdk-9
     - env: IMAGE=maven:3-jdk-8 JDOC=Y 
