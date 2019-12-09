@@ -1,5 +1,3 @@
-
-
 # Configuration file for Travis continuous integration.
 
 # See https://travis-ci.org/apache/calcite
@@ -36,32 +34,17 @@
 
 #
 
-
 language: java
 
 matrix:
-  include: 
-      arch:
-        - ppc64le
-    
-    
-    - env: IMAGE=maven:3-jdk-12
-        os: linux-ppc64le
-    - env: IMAGE=maven:3-jdk-11 JDOC=Y RAT=Y
-        os: linux-ppc64le
-    - env: IMAGE=maven:3-jdk-10 SLOW_TESTS=Y
-    - env: IMAGE=maven:3-jdk-9
-    - env: IMAGE=maven:3-jdk-8 JDOC=Y 
-    
-      
-      jdk: openjdk11
-      
-      
-
+  
+  arch: ppc64le
+  os: linux-ppc64le
   fast_finish: true
 
- 
-    
+  include:
+
+    - env: IMAGE=maven:3-jdk-11 JDOC=Y RAT=Y
 
 branches:
 
@@ -106,8 +89,6 @@ script:
   - if [ $JDOC = "Y" ]; then export JDOC=javadoc:javadoc; fi
 
   - if [ $RAT = "Y" ]; then export RAT="apache-rat:check -Drat.consoleOutput"; fi
-
-  - if [ $SLOW_TESTS = "Y" ]; then export TESTS="-Dgroups=org.apache.calcite.test.SlowTests --projects :calcite-core"; else export TESTS=-DskipSlowTests; fi
 
   - $DOCKERRUN $IMAGE mvn -Dcheckstyle.skip -Dsurefire.useFile=false -Dsurefire.threadCount=1 -Dsurefire.perCoreThreadCount=false -Djavax.net.ssl.trustStorePassword=changeit test $TESTS $JDOC $RAT
 
