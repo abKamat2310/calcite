@@ -42,9 +42,10 @@ matrix:
   fast_finish: true
 
   include:
-    - arch: ppc64le
-    - os: linux-ppc64le
+    
     - env: IMAGE=maven:3-jdk-11 JDOC=Y RAT=Y
+      -  arch: ppc64le
+      - os: linux-ppc64le
 
 branches:
 
