@@ -35,16 +35,16 @@
 #
 
 language: java
- arch: ppc64le
- os: linux-ppc64le
+os: linux-ppc64le
+arch: ppc64le
+
 matrix:
 
- 
   fast_finish: true
 
   include:
-     
-      - env: IMAGE=maven:3-jdk-11 JDOC=Y RAT=Y
+
+    - env: IMAGE=maven:3-jdk-11 JDOC=Y RAT=Y
 
 branches:
 
