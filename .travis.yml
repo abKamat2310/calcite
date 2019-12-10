@@ -35,11 +35,10 @@
 #
 
 language: java
-
+ arch: ppc64le
+ os: linux-ppc64le
 matrix:
 
-        arch: ppc64le
-        os: linux-ppc64le
  
   fast_finish: true
 
